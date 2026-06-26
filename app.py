@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 from groq import Groq
+import os
 
 app = Flask(__name__)
-
-# API Key milikmu sudah terpasang aman dan valid
-client = Groq(api_key="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")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 @app.route("/")
 def home():
